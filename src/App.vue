@@ -1,8 +1,16 @@
 <template>
-  <h1>Hello world</h1>
+  <page-layout></page-layout>
 </template>
 
-<script></script>
+<script>
+import PageLayout from "./components/PageLayout.vue"
+
+export default {
+  components: {
+    'page-layout': PageLayout
+  }
+}
+</script>
 
 <style>
 *,
@@ -23,5 +31,12 @@
 
 html {
   font-family: sans-serif;
+}
+
+section {
+  border-radius: 10px;
+  margin-block: 40px;
+  padding: 40px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 </style>
