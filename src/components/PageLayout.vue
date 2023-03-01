@@ -1,7 +1,7 @@
 <template>
     <the-header></the-header>
     <page-selector @selected-component="componentToDisplay"></page-selector>
-    <component :is="currentComponent" :resources="resources"></component>
+    <component :is="currentComponent" :resources="resources" @return-id="returnId"></component>
 </template>
 
 <script>
@@ -18,18 +18,15 @@ export default {
     data() {
         return {
             currentComponent: '',
-            resources: [
-                {
-                    title: 'Google',
-                    description: 'You need to know how to google',
-                    link: 'https://google.com'
-                }
-            ]
+            resources: []
         }
     },
     methods: {
         componentToDisplay(component) {
             this.currentComponent = component
+        },
+        returnId(id) {
+            console.log(id)
         }
     }
 }

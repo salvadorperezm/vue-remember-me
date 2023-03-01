@@ -1,23 +1,29 @@
 <template>
-    <section v-if="resources" v-for="resource in resources" :key="resource.title" class="resource-item">
+    <section v-if="resources.length > 0" v-for="resource in resources" :key="resource.id" class="resource-item">
         <div class="resource-item__header">
             <h2 class="resource-item__title">{{ resource.title }}</h2>
-            <button class="resource-item__button">Delete</button>
+            <button @click="returnId(resource.id)" class="resource-item__button">Delete</button>
         </div>
         <div class="resource-item__body">
             <p class="resource-item__description">{{ resource.description }}</p>
             <a :href="resource.link" target="_blank" class="resource-item__link">View resource</a>
         </div>
     </section>
-    <section v-else>
-        <h2>No resources yet.</h2>
-        <p>Try adding some on the Add Resource page</p>
+    <section v-else class="no-resource">
+        <h2 class="no-resource__title">No resources yet.</h2>
+        <p class="no-resource__body">Try adding some on the Add Resource page</p>
     </section>
 </template>
 
 <script>
 export default {
-    props: ['resources']
+    emits: ['return-id'],
+    props: ['resources'],
+    methods: {
+        returnId(id) {
+            this.$emit('return-id', id)
+        }
+    }
 }
 </script>
 
@@ -55,5 +61,16 @@ export default {
 
 .resource-item__link:hover {
     text-decoration: underline;
+}
+
+.no-resource {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-resource__title {
+    margin-block-end: 10px;
 }
 </style>
