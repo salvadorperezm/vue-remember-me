@@ -2,7 +2,7 @@
     <the-header></the-header>
     <page-selector @selected-component="componentToDisplay"></page-selector>
     <stored-resources v-if="currentComponent === 'stored-resources'" :resources="resources"
-        @return-id="returnId"></stored-resources>
+        @return-id="deleteTask"></stored-resources>
     <add-resource v-else @new-resource="addResource"></add-resource>
 </template>
 
@@ -29,8 +29,9 @@ export default {
         componentToDisplay(component) {
             this.currentComponent = component
         },
-        returnId(id) {
-            console.log(id)
+        deleteTask(id) {
+            const filteredArray = this.resources.filter((resource) => resource.id !== id)
+            this.resources = filteredArray
         },
         addResource(resource) {
             this.resources.push(resource)
