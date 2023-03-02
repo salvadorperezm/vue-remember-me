@@ -1,8 +1,9 @@
 <template>
     <the-header></the-header>
     <page-selector @selected-component="componentToDisplay"></page-selector>
-    <stored-resources v-if="currentComponent === 'stored-resources'" :resources="resources"></stored-resources>
-    <add-resource v-else @return-id="returnId" @new-resource="addResource"></add-resource>
+    <stored-resources v-if="currentComponent === 'stored-resources'" :resources="resources"
+        @return-id="returnId"></stored-resources>
+    <add-resource v-else @new-resource="addResource"></add-resource>
 </template>
 
 <script>
