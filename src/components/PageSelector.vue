@@ -36,6 +36,7 @@ export default {
     padding: 20px;
     color: var(--purple);
     background-color: var(--white);
+    font-size: 20px;
 
 }
 
