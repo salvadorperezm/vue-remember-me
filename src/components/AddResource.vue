@@ -64,6 +64,7 @@ export default {
     color: var(--white);
     background-color: var(--purple);
     font-size: 16px;
+    border-radius: 5px;
 }
 
 .add-resource__button:hover {
