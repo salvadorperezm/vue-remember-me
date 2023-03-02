@@ -1,7 +1,9 @@
 <template>
     <section class="page-selector__container">
-        <button class="page-selector__button" @click="selectComponent('stored-resources')">stored resources</button>
-        <button class="page-selector__button" @click="selectComponent('add-resource')">add resource</button>
+        <button :class="['page-selector__button', isComponentActive('stored-resources')]"
+            @click="selectComponent('stored-resources')">stored resources</button>
+        <button :class="['page-selector__button', isComponentActive('add-resources')]"
+            @click="selectComponent('add-resources')">add resource</button>
     </section>
 </template>
 
@@ -20,6 +22,13 @@ export default {
         selectComponent(component) {
             this.currentComponent = component
             this.$emit('selected-component', this.currentComponent)
+        },
+        isComponentActive(component) {
+            if (this.currentComponent === component) {
+                return 'page-selector__button--active'
+            } else {
+                return null
+            }
         }
     }
 }
@@ -37,12 +46,16 @@ export default {
     color: var(--purple);
     background-color: var(--white);
     font-size: 20px;
+    border-radius: 5px;
+}
 
+.page-selector__button:hover,
+.page-selector__button--active {
+    color: var(--white);
+    background-color: var(--purple);
 }
 
 .page-selector__button:hover {
-    color: var(--white);
-    background-color: var(--purple);
     cursor: pointer;
 }
 </style>
