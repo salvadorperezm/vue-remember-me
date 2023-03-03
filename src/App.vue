@@ -34,9 +34,18 @@ html {
 }
 
 section {
+  max-width: 1200px;
+  margin: 0 auto;
   border-radius: 10px;
   margin-block: 40px;
   padding: 40px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    margin-inline: 20px;
+  }
+
 }
 </style>
