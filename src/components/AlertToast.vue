@@ -1,11 +1,13 @@
 <template>
-    <div class="toast__container">
-        <div class="toast__header">
-            <slot name="header"></slot>
-        </div>
-        <div class="toast__body">
-            <slot></slot>
-            <button class="toast__button" @click="closeToast">okay</button>
+    <div class="toast__background">
+        <div class="toast__container">
+            <div class="toast__header">
+                <slot name="header"></slot>
+            </div>
+            <div class="toast__body">
+                <slot></slot>
+                <button class="toast__button" @click="closeToast">okay</button>
+            </div>
         </div>
     </div>
 </template>
@@ -22,7 +24,20 @@ export default {
 </script>
 
 <style scoped>
+.toast__background {
+    background-color: rgba(0, 0, 0, .4);
+    position: fixed;
+    top: 0px;
+    z-index: 999;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .toast__container {
+    flex: 1;
     border-radius: 5px;
     overflow: hidden;
     max-width: 800px;

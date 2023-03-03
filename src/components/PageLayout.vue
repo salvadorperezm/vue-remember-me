@@ -53,7 +53,6 @@ export default {
         addResource(resource) {
             if (resource.title === '' || resource.description === '' || resource.link === '') {
                 this.isToastDisplayed = !this.isToastDisplayed
-                console.warn('Missing resource information')
             } else {
                 this.resources.push(resource)
             }
