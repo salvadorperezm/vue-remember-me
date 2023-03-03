@@ -71,4 +71,10 @@ export default {
 .add-resource__button:hover {
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    .add-resource__button {
+        width: 100%;
+    }
+}
 </style>
