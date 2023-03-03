@@ -15,5 +15,6 @@
 .header__text {
     color: var(--white);
     font-size: 48px;
+    text-align: center;
 }
 </style>

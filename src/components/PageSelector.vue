@@ -35,6 +35,10 @@ export default {
 </script>
 
 <style scoped>
+.page-selector__container {
+    display: flex;
+}
+
 .page-selector__button:first-child {
     margin-inline-end: 10px;
 }
@@ -57,5 +61,11 @@ export default {
 
 .page-selector__button:hover {
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .page-selector__container {
+        flex-direction: column;
+    }
 }
 </style>
