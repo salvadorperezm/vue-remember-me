@@ -32,6 +32,16 @@ export default {
         'the-header': TheHeader,
         'alert-toast': AlertToast,
     },
+    created() {
+        if (!localStorage.getItem('resources')) {
+            localStorage.setItem('resources', '')
+        }
+    },
+    mounted() {
+        if (localStorage.getItem('resources') !== '') {
+            this.resources = JSON.parse(localStorage.getItem('resources'))
+        }
+    },
     data() {
         return {
             currentComponent: '',
@@ -57,6 +67,14 @@ export default {
                 this.resources.push(resource)
             }
 
+        }
+    },
+    watch: {
+        resources: {
+            handler() {
+                localStorage.setItem('resources', JSON.stringify(this.resources))
+            },
+            deep: true
         }
     }
 }
