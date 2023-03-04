@@ -1,30 +1,51 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <page-layout></page-layout>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<script>
+import PageLayout from "./components/PageLayout.vue"
+
+export default {
+  components: {
+    'page-layout': PageLayout
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+</script>
+
+<style>
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+:root {
+  --black: #000000;
+  --orange: #c5641f;
+  --purple: #592593;
+  --white: #ffffff;
+  --wine: #932525;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-block: 40px;
+  padding: 40px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    margin-inline: 20px;
+  }
+
 }
 </style>
