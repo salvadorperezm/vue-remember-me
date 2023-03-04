@@ -28,7 +28,10 @@ export default {
     methods: {
         addResource() {
             const id = Math.random().toString(36).slice(2, 7);
-            this.$emit('new-resource', { id, ...this.resource })
+            this.$emit('new-resource', { id, ...this.resource });
+            this.resource.title = '';
+            this.resource.description = '';
+            this.resource.link = '';
         }
     }
 }
